@@ -1,0 +1,28 @@
+version: '3.2'
+services:
+    node:
+        container_name: liteflix-node
+        image: "node:14.17-buster"
+        restart: always
+        user: node
+        volumes:
+            - ./:/var/www/html/
+        working_dir: /var/www/html
+        ports:
+            - "3009:3009"
+            - "9662:9662"
+        command: sh -c "npm install && npm run start:dev && npm run typeorm:local migration:run"
+        
+    mysql:
+        container_name: liteflix-mysql
+        image: "mysql:5.7"
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=liteflix_db
+        volumes:
+            - liteflix_db_volume:/var/lib/mysql
+        ports:
+            - 5002:3306
+volumes:
+    liteflix_db_volume:
