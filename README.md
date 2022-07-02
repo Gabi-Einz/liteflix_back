@@ -71,3 +71,25 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Crear migration:
+	docker exec liteflix-node npm run typeorm:local migration:create -- -n "MigrationNameInCamelCase"
+
+	docker exec liteflix-node npm run typeorm:local migration:create -n "asd"
+
+## Ejecutar migration:
+	docker exec liteflix-node npm run typeorm:local migration:run
+	
+## Ejecutar logs:
+	docker exec liteflix-node cat /home/node/.npm/_logs/2022-06-26T16_11_36_089Z-debug.log
+
+## Generar Entities:
+  docker exec liteflix-node\
+  npx typeorm-model-generator\
+  -h liteflix-mysql\
+  -p 3306\
+  -d liteflix_db\
+  -u root\
+  -x root\
+  -e mysql\
+  -o "./apps/src/Models/Entities"
