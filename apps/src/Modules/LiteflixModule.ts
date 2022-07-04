@@ -1,12 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from '../Controllers/app.controller';
-import { MovieController } from '../Controllers/MovieController';
-import { MovieDao } from '../Daos/MovieDao';
 import { importAllFromRequireContext } from '../Helpers/Utilities/ImportAllFromRequireContext';
-import { AppService } from '../Services/app.service';
-import { MovieService } from '../Services/MovieService';
-
 
 @Module({
   imports: [

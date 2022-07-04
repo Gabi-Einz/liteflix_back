@@ -19,5 +19,13 @@ export class MovieDao {
        
     }
 
+    public async getMovies(): Promise<Movie[]> {
+        try {
+            return await this.movieRepository.find();
+        } catch (error) {
+            throw new BadRequestException(`Error al obtener peliculas de base de datos. ${error}`);
+        }     
+    }
+
     
 }

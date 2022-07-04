@@ -9,6 +9,7 @@ try {
   let envs = NestEnvConfiguration.envModelTransformer(envData);
   module.exports = {
       ...envs.DATABASE,
+      dropSchema: true,
       migrations: [ "apps/src/Migrations/**/*.{ts,js}" ],
       entities: [ "apps/src/Models/Entities/**/*.{ts,js}" ],
       cli: {
