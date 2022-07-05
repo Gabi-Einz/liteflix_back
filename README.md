@@ -4,7 +4,7 @@
     node
     docker
     docker-compose
-## Levantar servidor
+## Levantar servidor localmente
   1)Levantamos contenedores de node y mysql:
     docker-compose up
   2)Ejecutamos migrations:
